@@ -1,20 +1,10 @@
 # CSCI0451 Project: Classical Music Classification 
 
 ## Abstract
-In 3-4 sentences, concisely describe:
-
-What problem your project addresses.
-The overall approach you will use to solve the problem.
-How you propose to evaluate your success against your stated goals.
+In this project, we will work to identify a composer of classical music. More specifically, we will identify whether a piece of classical music is Beethoven or not. In order to accomplish this, we will be using a dataset with MIDI files of songs from different composers and metadata about those songs. Through strategic feature selection based on knowledge about patterns in classical music, we hope to yield successful results, in that our model is able to correctly classify whether a piece of music is Beethoven's at least 95% of the time. 
 
 ## Motivation and Question
-Describe your motivation for your project idea. Some (shortened) examples of good types of motivations:
-
-We have a scientific data set for which predictive or expoloratory models would help us generate hypotheses.
-We have user information for which predictive models would help us give users better experiences.
-We have performance data (e.g. from sports teams) for which predictive models could help us make better decisions.
-Algorithmic bias is an increasingly urgent challenge as machine learning products proliferate, and we want to explore it more deeply.
-You should be more specific than these: describe your specific data set (if applicable); your scientific questions; the type of decisions your model could inform; etc.
+We are both avid music listeners, who sometimes hear songs we are unfamiliar with, but want to quickly identify. To begin to address this minute, but everyday problem we encounter, we found a small dataset focused on classical music, which we felt would allow us to start picking at this larger problem with our current computing power and machine learning skills. This dataset has MIDI files of classical music by different composers, almost half of which is Beethoven. This dataset also has metedata about each MIDI file, including the composer, composition, and ensemble. By training a model on this dataset, we hope to classify whether a piece of music is Beethoven or not. Ultimately, this is related to this larger problem of identifying unknown music that we do not have the resources to solve yet. 
 
 ## Planned Deliverables
 Concisely state what you are aiming to create and what capabilities it will have. For most projects, I would expect the deliverable to include:
@@ -38,11 +28,13 @@ Please pay special attention to the question of data. If your project idea invol
 
 Most projects should involve data in some way, but certain projects may not require data. Ask me if you’re not sure.
 
-## What You Will Learn
+## What We Will Learn
 Each group member should return to their stated goals from the reflective goal-setting assignment at the beginning of the course. Then, in this section, please state what each group member intends to learn through working on the project, relating your intentions to your stated goals. You might be thinking of certain algorithms, software packages, version control, project management, effective teamwork, etc.
 
+Katie: 
+
 ## Risk Statement
-What are two things that could potentially stop you from achieving the full deliverable above? Maybe it turns out that the pattern you thought would be present in the data just doesn’t exist? Or maybe your idea requires more computational power than is available to you? What particular risks might be applicable for your project?
+Working with MIDI files and using files that map to metadata comes with risks that could potentially hold us back from achieving the full deliverable above. It might take longer to train a model using MIDI files. We also may encounter new and more challenging bugs related to mapping the files to the metadata or extracting defining features from the audio that may take longer to address. 
 
 ## Ethics Statement
 All projects we undertake involve decisions about whose interests matter; which problems are important; and which tradeoffs are considered acceptable. Take some time to reflect on the potential impacts of your project on its prospective users and the broader world. Address the following questions:
@@ -60,76 +52,21 @@ If your project involves making decisions or recommendations, then you will also
 A recipe recommendation app can privilege the cuisines of some locales over others. Will your user search recipes by ingredients? Peanut butter and tomato might seem an odd combination in the context of European cuisine, but is common in many traditional dishes of the African diaspora. A similar set of questions applies to recommendation systems related to style or beauty.
 A sentiment analyzer must be trained on specific languages. What languages will be included? Will diverse dialects be included, or only the “standard” version of the target language? Who would be excluded by such a choice, and how will you communicate about your limitations?
 
-### Tentative Timeline
-We will have a checkpoint for the project in Week 9 or 10, and then final presentations in Week 12. With this in mind, please describe what you expect to achieve after three and six. Your goal by the three-week check-in should be to have “something that works.” For example, maybe in three weeks you’ll ready to demonstrate the data acquisition pipeline and show some exploratory analysis, and in the last couple weeks you’ll actually implement your machine learning models.
+## Tentative Timeline
+After three weeks of working on this project, we hope to have multiple machine learning models trained on our data with some exploratory analysis. By week six of working on this project, we hope to have found and trained a model with our desired results of 95% accuracy, cleaned up our code, synthesized our analysis, and completed all required deliverables. 
 
-Your proposal is acceptably complete if if:
-
-- The proposal is hosted on GitHub as the top-level README.md file in a repository hosted by one of the group members.
-- Each team member has made at least two commits to this file, which in total demonstrate substantial commitments to the writing of the proposal.
-- The proposal contains thoughtful discussion in each of the required sections, which addresses all of the relevant questions posed in each one.
-- The proposal is written in clear English prose. Within reason, grammatical mistakes are not a problem.
-- You have submitted a URL to your GitHub repository on Canvas.
-
-### Length
-There is no specifically required length for the proposal. Generally speaking, I would expect a thoughtful proposal to require around 600-900 words (roughly the length of 2-3 double-spaced pages). However, any length is acceptable provided that it provides thoughtful discussion of each of the required components.
-
-## 4 Optional Practice: Collaborative Workflows in Git
-
-Your proposal should be written on GitHub and contain commits by multiple team members. This is the same workflow that you’ll use for collaborating on your project itself. If members of your team are not familiar with collaborative workflows in Git and GitHub, then you should complete this activity with your team in order to get up to speed.
-
-Working through this mini activity with your group is optional but strongly recommended.
-
-Make a Grid
-It’s possible that your repository already has a top-level file named README.md. If not, a new group member (not the one who created the repo) should create one. Then, this group member should create a code block in the file README.md containing a 3x3 grid of dots, like the below:
-
-. . . 
-. . .
-. . .
-Save, commit, and push. All other group members should now pull, so that they have the grid of dots as well.
-
-Play Tic-Tac-Toe
-If you have more than two people, separate into two teams – it’s ok if they are not the same size. Play a few games of Tic-Tac-Toe by replacing the dots in the grid you made with the symbol X or O. Here’s how to make a move:
-
-A member of Team X deletes a dot and replaces it with an X.
-This member commits and pushes their change.
-All other team members pull, so that the move is reflected in their file.
-A member of Team O deletes a dot and replaces it with an O…
-By playing some Tic-Tac-Toe, you practice the fundamental pull-commit-push workflow of collaboration. Make sure that every group member gets a chance to make a move, commit their move, and push at least twice.
-
-Merging
-Create a new, blank Tic-Tac-Toe game. Imagine that Team X and Team O miscommunicated about who would go first, so they both make moves simultaneously. Test out the following scenarios.
-
-Scenario 1:
-
-Team X makes the following move:
-
-. . . 
-. . .
-. X .
-Team O makes the following move:
-
-. O . 
-. . .
-. . .
-Both teams should now attempt to commit and push. One team will be prompted to pull prior to pushing. This pull will prompt a merge, since two changes were made to the same file. Observe what happens, commit, and then push. Pull as needed so that both teams have both moves in their file.
-
-Scenario 2:
-
-Team X makes the following move:
-
-. . . 
-. X .
-. . .
-Team O makes the following move:
-
-. . . 
-. O .
-. . .
-The current representative of each team should commit these respective moves, and attempt to push.
-
-Whoops! One team will be prompted to pull, and after pulling will be informed that there is a merge conflict in the repository. Inspect the file. Notice that the relevant part of the file now looks very weird. If you look closely, you can find lines corresponding both to the X move and to the O move. Pick one (arbitrarily), and commit/push the result.
-
-This is an example of the process used to handle merge conflicts, which occur when separate team members have modified the same file in conflicting ways.
-
-It’s recommended, but not required, that your team members take some time on their own to do a little reading on how merge conflicts work. This page gives a good explanation, and also covers the (optional but highly useful) topic of branching.
+Below is an overview of our tentative timeline ... 
+- Around 4/10 
+  - Classical music feature research complete
+  - Potential model research complete 
+- Around 4/17 
+  - Features selected based on feature research 
+  - Multiple models selected and trained 
+  - Rough draft of exploratory analysis in shared jupyter notebook
+- Around 4/27 
+  - Most successful model chosen 
+  - Cleaned up Python training code 
+  - Started creating final presentation 
+- Around 5/8 
+  - Model chosen and fully trained with desired performance 
+  - Deliverables finalized 
