@@ -8,12 +8,14 @@ We are both avid music listeners, who sometimes hear songs we are unfamiliar wit
 
 ## Planned Deliverables
 For our deliverables, we aim to have a Python package containing all code used for algorithms and analysis, including documentation. We will also have at least one Jupyter Notebook illustrating the use of the package to analyze data. We will evaluate our deliverables based on the following criteria:
-    Full Success: 
-        - A model that can identify whether a piece of classical music is composed by Beethoven or not
-        - Jupyter Notebook that demonstrates our understanding and results
-    Partial Success:
-        - A model that does not correctly classify whether a piece of classical music is composed by Beethoven
-        - Jupyter Notebook that explains our process / what we tried to achieve
+
+- Full Success: 
+    - A model that can identify whether a piece of classical music is composed by Beethoven or not
+    - Jupyter Notebook that demonstrates our understanding and results
+
+- Partial Success:
+    - A model that does not correctly classify whether a piece of classical music is composed by Beethoven
+    - Jupyter Notebook that explains our process / what we tried to achieve
 
 ## Written Deliverables
 You’ll also write a blog post on your project; you don’t have to discuss this post in your proposal though.
@@ -33,8 +35,10 @@ Working with MIDI files that map to metadata comes with risks that could potenti
 We believe our project could potentially benefit classical music listeners and/or people who want to get into classical music because it will help them be able to differentiate Beethoven, one of the greatest and most influential composers of Western classical music, from other composers. We would like to acknowledge that our project may exclude people with hearing disabilities since we are working with audio files. 
 
 Will the world become an overall better place because we made our project? Maybe. Under the assumptions that:
-    (1) A piece of music can be classified by composers based on features like tempo and rhythm, and 
-    (2) Most people don't truly know what makes music by Beethoven special,
+
+1. A piece of music can be classified by composers based on features like tempo and rhythm, and 
+2. Most people don't truly know what makes music by Beethoven special,
+
 our project may help people become more knowledgable about composers and make them appreciative of classical music.
 
 ## Tentative Timeline
