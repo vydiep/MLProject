@@ -30,7 +30,9 @@ Vy: Similar to what Katie said, a large portion of our project will be experimen
 Working with MIDI files that map to metadata comes with risks that could potentially hold us back from achieving the full deliverable above. It might take longer to train a model using MIDI files. We also may encounter new and more challenging bugs related to mapping the files to the metadata or extracting defining features from the audio. With neither of us having worked with MIDI files before, it may be a challenge to preprocess the files in an efficient and effective way. Since MIDI files are more simplified than MP3 files, there may be features in our music that we'd want to explore, but don't have the quality files to do so. 
 
 ## Ethics Statement
-We believe our project could potentially benefit classical music listeners and/or people who want to get into classical music because it will help them be able to differentiate Beethoven, one of the greatest and most influential composers of Western classical music, from other composers. We would like to acknowledge that our project may exclude people with hearing disabilities since we are working with audio files. Will the world become an overall better place because we made our project? Maybe. Under the assumptions that:
+We believe our project could potentially benefit classical music listeners and/or people who want to get into classical music because it will help them be able to differentiate Beethoven, one of the greatest and most influential composers of Western classical music, from other composers. We would like to acknowledge that our project may exclude people with hearing disabilities since we are working with audio files. 
+
+Will the world become an overall better place because we made our project? Maybe. Under the assumptions that:
     (1) A piece of music can be classified by composers based on features like tempo and rhythm, and 
     (2) Most people don't truly know what makes music by Beethoven special,
 our project may help people become more knowledgable about composers and make them appreciative of classical music.
