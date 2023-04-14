@@ -31,11 +31,14 @@ class MusicNet(data.Dataset):
         jitter (int, optional): Continuous pitch-jitter transformations.
         epoch_size (int, optional): Designated Number of samples for an "epoch"
     """
-    url = 'https://github.com/vydiep/MLProject/blob/main/pytorch_musicnet/musicnet.tar.gz' #INVALID URL 
+    #url = 'https://drive.google.com/file/d/1lA4KMH7oOSY0I1OoVVIgR37arN3aq3oj/view?usp=share_link' #INVALID URL 
+    local_file = "/content/gdrive/MyDrive/MLProject/musicnet.tar.gz" #/Users/katiemacalintal/Downloads/musicnet.tar.gz
     raw_folder = 'raw'
     train_data, train_labels, train_tree = 'train_data', 'train_labels', 'train_tree.pckl'
     test_data, test_labels, test_tree = 'test_data', 'test_labels', 'test_tree.pckl'
     extracted_folders = [train_data,train_labels,test_data,test_labels]
+
+    # download=False, was another argument for init
 
     def __init__(self, root, train=True, download=False, refresh_cache=False, mmap=True, normalize=True, window=16384, pitch_shift=0, jitter=0., epoch_size=100000):
         self.refresh_cache = refresh_cache
@@ -48,6 +51,11 @@ class MusicNet(data.Dataset):
         self.m = 128
 
         self.root = os.path.expanduser(root)
+
+        # if local_file is None:
+        #     self.local_file = os.path.join(self.root, self.raw_folder, 'musicnet.tar.gz')
+        # else:
+        #     self.local_file = local_file
 
         if download:
             self.download()
@@ -159,6 +167,7 @@ class MusicNet(data.Dataset):
         """Download the MusicNet data if it doesn't exist in ``raw_folder`` already."""
         from six.moves import urllib
         import gzip
+        import tarfile
 
         if self._check_exists():
             return
@@ -171,24 +180,26 @@ class MusicNet(data.Dataset):
                 pass
             else:
                 raise
+            
+        with tarfile.open(self.local_file, 'r:gz') as tar:
+            tar.extractall(self.root)
+        # filename = self.url.rpartition('/')[2]
+        # file_path = os.path.join(self.root, self.raw_folder, filename)
+        # if not os.path.exists(file_path):
+        #     print('Downloading ' + self.url)
+        #     data = urllib.request.urlopen(self.url)
+        #     with open(file_path, 'wb') as f:
+        #         # stream the download to disk (it might not fit in memory!)
+        #         while True:
+        #             chunk = data.read(16*1024)
+        #             if not chunk:
+        #                 break
+        #             f.write(chunk)
 
-        filename = self.url.rpartition('/')[2]
-        file_path = os.path.join(self.root, self.raw_folder, filename)
-        if not os.path.exists(file_path):
-            print('Downloading ' + self.url)
-            data = urllib.request.urlopen(self.url)
-            with open(file_path, 'wb') as f:
-                # stream the download to disk (it might not fit in memory!)
-                while True:
-                    chunk = data.read(16*1024)
-                    if not chunk:
-                        break
-                    f.write(chunk)
-
-        if not all(map(lambda f: os.path.exists(os.path.join(self.root, f)), self.extracted_folders)):
-            print('Extracting ' + filename)
-            if call(["tar", "-xf", file_path, '-C', self.root, '--strip', '1']) != 0:
-                raise OSError("Failed tarball extraction")
+        # if not all(map(lambda f: os.path.exists(os.path.join(self.root, f)), self.extracted_folders)):
+        #     print('Extracting ' + filename)
+        #     if call(["tar", "-xf", file_path, '-C', self.root, '--strip', '1']) != 0:
+        #         raise OSError("Failed tarball extraction")
 
         # process and save as torch files
         print('Processing...')
