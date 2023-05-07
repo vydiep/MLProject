@@ -243,7 +243,7 @@ def test(model, test_loader, device):
     print(f'Test accuracy: {100 * correct // total} %')
 
 
-def plot_history(model, graph_path):
+def plot_history(title, model, graph_path):
     """
     Plot the models history of training/validation accuracies 
     and training/validation losses on separate graphs based on what is stored 
@@ -257,6 +257,8 @@ def plot_history(model, graph_path):
     """
 
     fig, axs = plt.subplots(2)
+
+    fig.suptitle(title, fontweight='heavy')
 
     # create accuracy sublpot
     axs[0].plot(model.training_info["train_accuracies"], label="train accuracy")
