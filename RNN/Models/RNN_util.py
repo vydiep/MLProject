@@ -24,9 +24,11 @@ def load_data(data_path):
         https://github.com/musikalkemist/DeepLearningForAudioWithPython/blob/master/19-%20How%20to%20implement%20an%20RNN-LSTM%20for%20music%20genre%20classification/code/19-%20How%20to%20implement%20an%20RNN-LSTM%20for%20music%20genre%20classification.py
     """
 
+    # open file for reading 
     with open(data_path, "r") as fp:
         data = json.load(fp)
 
+    # store features and labels as np arrays
     X = np.array(data["mfcc"])
     y = np.array(data["labels"])
     
@@ -121,11 +123,13 @@ def train(model, train_loader, val_loader, k_epochs, device):
         Number of epochs to run training on 
     :device 
         device to move to 
+
+    Guidance from CS451 lecture notes
     """
 
     begin = time.time()
 
-    loss_fn = nn.BCEWithLogitsLoss()
+    loss_fn = nn.BCEWithLogitsLoss() # Loss function for binary classification
     optimizer = optim.Adam(model.parameters(), lr=0.001)
 
     # Printing purposes
@@ -175,7 +179,7 @@ def train(model, train_loader, val_loader, k_epochs, device):
         correct = 0
         total = 0
 
-        # Do no store computational graph since we are simulating testing 
+        # Do not store computational graph since we are simulating testing 
         with torch.no_grad():
             for i, data in enumerate(val_loader, 0):
                 X, y = data
@@ -245,10 +249,9 @@ def test(model, test_loader, device):
 
 def plot_history(title, model, graph_path):
     """
-    Plot the models history of training/validation accuracies 
-    and training/validation losses on separate graphs based on what is stored 
-    in its training info. 
-    Save the created graphs at graph_path
+    Plot the models history of training/validation accuracies and 
+    training/validation losses on separate graphs based on what is 
+    stored in its training info. Save the created graphs at graph_path. 
 
     :param model
         Model whose history we want to inspect 
