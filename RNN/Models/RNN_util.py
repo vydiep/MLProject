@@ -10,15 +10,14 @@ from torch.utils.data import DataLoader, TensorDataset
 
 def load_data(data_path):
     """
-    Load data from JSON file 
+    Load data from JSON file and return features and labels 
 
-    :param  data_path(string)
-        Path to JSON file 
+    Parameters:
+    - data_path: path to JSON file (string) 
 
-    :return X (ndarray)      
-        Features from data
-    :return y (ndarray)      
-        Label for data
+    Return: 
+    - X: features from data (numpy array)
+    - y: labels for data (numpy array)
 
     Resource: 
         https://github.com/musikalkemist/DeepLearningForAudioWithPython/blob/master/19-%20How%20to%20implement%20an%20RNN-LSTM%20for%20music%20genre%20classification/code/19-%20How%20to%20implement%20an%20RNN-LSTM%20for%20music%20genre%20classification.py
@@ -39,23 +38,17 @@ def prepare_datasets(data_path, test_size, validation_size):
     """
     Loads data and splits it into train, validation and test sets.
 
-    :param test_size (float)
-        Value in [0, 1] for percentage of data set to allocate to test split
-    :param validation_size (float)
-        Value in [0, 1] for percentage of train set to allocate to validation split
+    Parameters: 
+    - test_size: percentage of data set to allocate for testing (float)
+    - validation_size: percentages of training set to allocate for validation (float)
 
-    :return X_train (ndarray)
-        Input training set
-    :return X_validation (ndarray)
-        Input validation set
-    :return X_test (ndarray)
-        Input test set
-    :return y_train (ndarray)
-        Target training set
-    :return y_validation (ndarray)
-        Target validation set
-    :return y_test (ndarray)
-        Target test set
+    Return: 
+    - X_train: training set (numpy array)
+    - X_validation: training validation set (numpy array)
+    - X_test: testing set (numpy array)
+    - y_train: labels for training set (numpy array)
+    - y_validation: labels for training validation set (numpy array)
+    - y_test: labels for testing set (numpy array)
 
     Resource:
         https://github.com/musikalkemist/DeepLearningForAudioWithPython/blob/master/19-%20How%20to%20implement%20an%20RNN-LSTM%20for%20music%20genre%20classification/code/19-%20How%20to%20implement%20an%20RNN-LSTM%20for%20music%20genre%20classification.py
@@ -74,16 +67,13 @@ def get_data_loaders(data_path):
     """
     Create and return PyTorch DataLoader objects for the training, validation, and test data
 
-    :param data_path (string)
-        Path to file with data (JSON)
-    
-    :return train_loader (DataLoader)
-        DataLoader object with training data 
-    :return val_loader (DataLoader)
-        DataLoader object with val data 
-    :return test_loader (DataLoader)
-        DataLoader object with test data 
+    Parameters: 
+    - data_path: Path to JSON file with data (string)
 
+    Return: 
+    - train_loader: training data (DataLoader)
+    - val_loader: val data (DataLoader)
+    - test_loader: test data (DataLoader)
     """
     batch_size = 32
 
@@ -113,16 +103,12 @@ def train(model, train_loader, val_loader, k_epochs, device):
     Time and train model for k_epochs using the train_loader while regulating performance 
     using the val_loader 
 
-    :param model 
-        model to train
-    :param train_loader(DataLoader)
-        Data to train on 
-    :param val_loader (DataLoader)
-        Data to validate and regulate performance 
-    :k_epochs (int)
-        Number of epochs to run training on 
-    :device 
-        device to move to 
+    Parameters: 
+    - model: model to train with 
+    - train_loader: data to train on (DataLoader)
+    - val_loader: data to validate and regulate performance (DataLoader)
+    - k_epochs: number of epochs to run training on (int)
+    - device: device to move to 
 
     Guidance from CS451 lecture notes
     """
@@ -218,12 +204,12 @@ def test(model, test_loader, device):
     """
     Test performance of model based on test_loader 
 
-    :param model
-        Model to test
-    :param test_loader (DataLoader)
-        Test data to assess performance 
-    :param device 
-        Device to move to
+    Parameters: 
+    - model: model to test 
+    - test_loader: test data to assess performance (DataLoader)
+    - device: device to move to 
+
+    Guidance from CS451 lecture notes
     """
     correct = 0
     total = 0
@@ -253,10 +239,10 @@ def plot_history(title, model, graph_path):
     training/validation losses on separate graphs based on what is 
     stored in its training info. Save the created graphs at graph_path. 
 
-    :param model
-        Model whose history we want to inspect 
-    :graph_path (string)
-        Path for storing image of graphs 
+    Parameters: 
+    - title: title to give graph (string)
+    - model: model whose history to inspect
+    - graph_path: path for storing images of graphs (string)
     """
 
     fig, axs = plt.subplots(2)
